@@ -6,6 +6,11 @@ app.get("/", function(req,res){
     res.send("<h1>Bem vindo ao meu site!</h1>");
 })
 
+//nova rota
+app.get("/login", function(req,res){
+	res.send("Area de login");
+})
+
 //rota do cadastro de produtos
 app.get("/produtos", function(req,res){
     res.send("<h1>Lista de Produtos!</h1>");
