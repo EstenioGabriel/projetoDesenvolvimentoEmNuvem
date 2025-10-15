@@ -1,14 +1,10 @@
 const express = require("express"); //importa o módulo express neste arquivo
 const app = express(); //iniciando o express
+const PORT = process.env.PORT || 8080;
 
 //criando a rota inicial
 app.get("/", function(req,res){
     res.send("<h1>Bem vindo ao meu site!</h1>");
-})
-
-//nova rota
-app.get("/login", function(req,res){
-	res.send("Area de login");
 })
 
 //rota do cadastro de produtos
@@ -37,11 +33,21 @@ app.get("/cadastro/{:nome}", function(req,res){
 })
 
 
-app.listen(process.env.PORT ?? 3000,function(erro){  // cria a aplicação na porta 4000
-    if (erro){
-        console.log("Erro ao Iniciar.");
-    }else{
-        console.log("Servidor Iniciado.");
-    }
-})
+//app.listen(process.env.PORT ?? 3000,function(erro){  // cria a aplicação na porta 4000
+//    if (erro){
+//        console.log("Erro ao Iniciar.");
+//    }else{
+//        console.log("Servidor Iniciado.");
+//    }
+//})
+
+console.log ("PORT env: ", process.env.port);
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
+
+
+
+
 
